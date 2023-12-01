@@ -42,8 +42,4 @@ defmodule PartTwo do
     |> String.trim()
     |> String.split("\n")
   end
-
-  def start(_type, _args) do
-    {:ok, self()}
-  end
 end

@@ -1,4 +1,4 @@
-defmodule Aoc.MixProject do
+defmodule AdventOfCode.MixProject do
   use Mix.Project
 
   def project do
@@ -14,7 +14,7 @@ defmodule Aoc.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {Solver, []},
+      mod: {Aoc, []},
       applications: [:httpoison],
       extra_applications: [:logger]
     ]

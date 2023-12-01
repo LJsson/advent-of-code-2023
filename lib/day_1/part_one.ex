@@ -2,7 +2,15 @@
 defmodule PartOne do
 
   def solution() do
-    Inputs.get_input(1)
+    #Inputs.get_input(1)
+    inputs = "two1nine
+    eightwothree
+    abcone2threexyz
+    xtwone3four
+    4nineeightseven2
+    zoneight234
+    7pqrstsixteen"
+    {:ok, inputs}
     |> format_input()
     |> Enum.map(fn input ->
       input
@@ -27,9 +35,5 @@ defmodule PartOne do
     input
     |> String.trim()
     |> String.split("\n")
-  end
-
-  def start(_type, _args) do
-    {:ok, self()}
   end
 end
