@@ -17,7 +17,6 @@ defmodule PartTwo do
     Inputs.get_input(1)
     |> format_input()
     |> Enum.map(&pair_in_ints/1)
-    |> IO.inspect()
     |> Enum.sum()
   end
 
@@ -48,4 +47,3 @@ defmodule PartTwo do
     {:ok, self()}
   end
 end
-# String.replace(input_line, ~r/#{~s/#{number}/}/, @letter_numbers[number])
