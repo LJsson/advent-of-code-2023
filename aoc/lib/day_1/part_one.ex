@@ -33,4 +33,3 @@ defmodule PartOne do
     {:ok, self()}
   end
 end
-# String.replace(input_line, ~r/#{~s/#{number}/}/, @letter_numbers[number])
