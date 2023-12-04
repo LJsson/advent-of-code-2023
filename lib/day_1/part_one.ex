@@ -1,5 +1,5 @@
 
-defmodule PartOne do
+defmodule Day1.PartOne do
 
   def solution() do
     Inputs.get_input(1)

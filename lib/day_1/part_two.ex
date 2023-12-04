@@ -1,5 +1,5 @@
 
-defmodule PartTwo do
+defmodule Day1.PartTwo do
 
   @letter_numbers%{
     "one" => "1",
