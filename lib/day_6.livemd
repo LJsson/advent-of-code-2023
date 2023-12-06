@@ -1,0 +1,79 @@
+# day 6
+
+```elixir
+Mix.install([
+  {:kino, "~> 0.11.3"}
+])
+```
+
+## Section
+
+```elixir
+input = Kino.Input.textarea("input")
+```
+
+## Part 1
+
+```elixir
+[time, distance] =
+  input
+  |> Kino.Input.read()
+  |> String.trim()
+  |> String.split("\n")
+  |> Enum.map(fn x ->
+    format =
+      x
+      |> String.split(~r/\s+/, trim: true)
+      |> Enum.reject(&(&1 == ""))
+
+    column = Enum.at(format, 0)
+
+    value =
+      Enum.drop(format, 1)
+      |> Enum.map(&String.to_integer/1)
+
+    [column, value]
+  end)
+```
+
+## solution
+
+```elixir
+total_time_tuple = Enum.at(time, 1) |> Enum.with_index()
+record_distance = Enum.at(distance, 1)
+
+Enum.reduce(total_time_tuple, 1, fn {total_time, index}, acc ->
+  count =
+    1..total_time
+    |> Enum.filter(fn time ->
+      distance = (total_time - time) * time
+      distance > Enum.at(record_distance, index)
+    end)
+    |> Enum.count()
+
+  acc * count
+end)
+```
+
+## Part 2
+
+```elixir
+[total_time, record_distance] =
+  input
+  |> Kino.Input.read()
+  |> String.trim()
+  |> String.split("\n")
+  |> Enum.map(fn x ->
+    x
+    |> String.replace(~r/\D+/, "")
+    |> String.to_integer()
+  end)
+```
+
+## Solution
+
+```elixir
+Enum.count(1..total_time, fn time ->
+  (total_time - time) * time > record_distance
+end)
+```
